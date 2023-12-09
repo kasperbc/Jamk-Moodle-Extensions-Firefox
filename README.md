@@ -1,5 +1,5 @@
-# Jamk-Moodle-Extensions
-Chrome extension to help with the frustration of Jamk's Moodle.
+# Jamk-Moodle-Extensions-Firefox
+Firefox port of Jaakko's chrome extension to help with the frustration of Jamk's Moodle.
 
 ## Features
 ### Quick links to course contents:
@@ -21,4 +21,11 @@ Out of these, you can customize which are shown in the extension's settings
 
 
 ## Installation
-To install the extension please follow [Google's instructions](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) on installing an unpacked extension
+1. Download the xpi file from the releases
+2. If you are using Firefox, the browser might prompt you to install it straight away. If this happens, you can skip to step 6. If not,
+3. Open "Add-ons and themes" on Firefox
+4. Click the gear icon and select "Install Add-on From File..."
+5. Select the xpi file
+6. The extension should be installed now. By default it probably won't run automatically, so to set it so that it does, open any course on moodle, select the extension in the extensions menu and set it to "Always allow on moodle.jamk.fi"
+
+![image](https://i.imgur.com/oFJGgr4.png)
