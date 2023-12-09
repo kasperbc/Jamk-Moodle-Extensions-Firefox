@@ -1,9 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "JAMK Moodle",
-  "version": "1.0",
+  "name": "JAMK Moodle Extensions",
+  "version": "1.0.2",
   "description": "Pretify jamk moodle and add usability improvements",
 
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "jamkmoodle@kasper.github.com",
+      "strict_min_version": "42.0"
+    }
+  },
   "icons": {
   },
   "content_scripts": [

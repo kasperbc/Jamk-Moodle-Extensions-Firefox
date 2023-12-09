@@ -8,7 +8,7 @@ navContainer.insertBefore(courseNav, navContainer.firstChild)
 courseNav.style.display = "flex";
 courseNav.style.gap = "20px";
 
-chrome.storage.sync.get(
+browser.storage.sync.get(
   {
     assignments: true,
     resources: true,
@@ -20,7 +20,7 @@ chrome.storage.sync.get(
     feedbackActivities: true,
     choices: true,
   },
-  (items) => {
+  ).then((items) => {
     if (items.assignments)
       createNavButton("Assignments", "https://moodle.jamk.fi/mod/assign/index.php?id=", "https://moodle.jamk.fi/theme/image.php/maisteriboost/assign/1701777894/monologo?filtericon=1");
     if (items.resources)

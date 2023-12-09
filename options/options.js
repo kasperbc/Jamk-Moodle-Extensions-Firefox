@@ -11,34 +11,33 @@ const saveOptions = () => {
     let feedbackActivities = document.getElementById('feedbackActivities').checked;
     let choices = document.getElementById('choices').checked;
   
-    chrome.storage.sync.set(
-        { 
-            assignments: assignments,
-            resources: resources,
-            interactiveContent: interactiveContent,
-            groupSelfSelections: groupSelfSelections,
-            groupChoices: groupChoices,
-            forums: forums,
-            blog: blog,
-            feedbackActivities: feedbackActivities,
-            choices: choices,
-        },
-      () => {
-        // Update status to let user know options were saved.
-        const status = document.getElementById('status');
-        status.textContent = 'Options saved.';
-        setTimeout(() => {
-          status.textContent = '';
-        }, 750);
+    browser.storage.sync.set(
+      { 
+          assignments: assignments,
+          resources: resources,
+          interactiveContent: interactiveContent,
+          groupSelfSelections: groupSelfSelections,
+          groupChoices: groupChoices,
+          forums: forums,
+          blog: blog,
+          feedbackActivities: feedbackActivities,
+          choices: choices,
       }
-    );
+    ).then(() => {
+      // Update status to let user know options were saved.
+      const status = document.getElementById('status');
+      status.textContent = 'Options saved.';
+      setTimeout(() => {
+        status.textContent = '';
+      }, 750);
+    });
   };
   
   // Restores select box and checkbox state using the preferences
   // stored in chrome.storage.
   const restoreOptions = () => {
-    chrome.storage.sync.get(
-    { 
+    browser.storage.sync.get(
+    {
         assignments: true,
         resources: true,
         interactiveContent: true,
@@ -49,7 +48,7 @@ const saveOptions = () => {
         feedbackActivities: true,
         choices: true,
     },
-      (items) => {
+    ).then((items) => {
         document.getElementById('assignments').checked = items.assignments;
         document.getElementById('resources').checked = items.resources;
         document.getElementById('interactiveContent').checked = items.interactiveContent;
